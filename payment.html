@@ -66,19 +66,11 @@
         variantKey: "AGREEMENT",
       });
 
-      coupon.addEventListener("change", function () {
-        if (coupon.checked) {
-          paymentMethodWidget.updateAmount(amount - 5000);
-        } else {
-          paymentMethodWidget.updateAmount(amount);
-        }
-      });
-
       button.addEventListener("click", function () {
         paymentWidget.requestPayment({
           orderId: "S56LQj3a4js3XmrvRNOwD",
           orderName: "재무 강의",
-          successUrl: "https://hantedstory.github.io/edu.a1/success.html"
+          successUrl: "https://hantedstory.github.io/edu.a1/success.html",
           failUrl: window.location.origin + "/fail",
           customerEmail: "customer123@gmail.com",
           customerName: "김토스",
