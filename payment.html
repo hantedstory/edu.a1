@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://js.tosspayments.com/v1/payment-widget"></script>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+        font-size: 16px;
+        padding: 24px;
+        background-color: #f9f9f9;
+        color: #333;
+      }
+
+      label {
+        font-size: 18px;
+      }
+
+      #payment-method,
+      #agreement {
+        margin: 20px 0;
+      }
+
+      #payment-button {
+        width: 100%;
+        padding: 16px;
+        font-size: 18px;
+        background-color: #3182f6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      #payment-button:hover {
+        background-color: #2563eb;
+      }
+    </style>
+  </head>
+  <body>
+  
+
+    <!-- 결제 UI, 이용약관 UI 영역 -->
+    <div id="payment-method"></div>
+    <div id="agreement"></div>
+
+    <!-- 결제하기 버튼 -->
+    <button id="payment-button">결제하기</button>
+
+    <script>
+      const button = document.getElementById("payment-button");
+      const amount = 50000;
+
+      const widgetClientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
+      const customerKey = "LDo3rmSkpSA_SCb5CotCj";
+      const paymentWidget = PaymentWidget(widgetClientKey, customerKey);
+
+      const paymentMethodWidget = paymentWidget.renderPaymentMethods(
+        "#payment-method",
+        { value: amount },
+        { variantKey: "DEFAULT" }
+      );
+
+      paymentWidget.renderAgreement("#agreement", {
+        variantKey: "AGREEMENT",
+      });
+
+      coupon.addEventListener("change", function () {
+        if (coupon.checked) {
+          paymentMethodWidget.updateAmount(amount - 5000);
+        } else {
+          paymentMethodWidget.updateAmount(amount);
+        }
+      });
+
+      button.addEventListener("click", function () {
+        paymentWidget.requestPayment({
+          orderId: "S56LQj3a4js3XmrvRNOwD",
+          orderName: "재무 강의",
+          successUrl: window.location.origin + "/success",
+          failUrl: window.location.origin + "/fail",
+          customerEmail: "customer123@gmail.com",
+          customerName: "김토스",
+          customerMobilePhone: "01012341234",
+        });
+      });
+    </script>
+  </body>
+</html>
