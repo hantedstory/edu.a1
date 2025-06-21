@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>결제 완료</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+      background-color: #f9f9f9;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .notice {
+      background-color: #fff8db;
+      border: 1px solid #ffe58f;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 30px;
+      font-size: 18px;
+      color: #614700;
+      line-height: 1.6;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 600px;
+      height: 520px;
+      border: none;
+      margin: 0 auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="notice">
+    🎉 결제가 완료되었습니다.<br><br>
+    <strong>수강자료 발송을 위해 이메일을 아래 폼에 작성 후 제출해주세요.</strong><br />
+    폼을 제출하지 않으시면 자료가 발송되지 않습니다.
+  </div>
+
+  <!-- ✅ 여기에 Tally 폼 주소 삽입 -->
+  <iframe src="https://tally.so/r/예시폼ID" loading="lazy"></iframe>
+
+</body>
+</html>
